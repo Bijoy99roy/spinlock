@@ -55,7 +55,7 @@ impl<T> Drop for Guard<'_, T> {
     fn drop(&mut self) {
         self.lock
             .locked
-            .store(false, std::sync::atomic::Ordering::Relaxed);
+            .store(false, std::sync::atomic::Ordering::Release);
     }
 }
 
