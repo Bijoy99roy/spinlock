@@ -48,8 +48,8 @@ impl<T> DerefMut for Guard<'_, T> {
     }
 }
 
-unsafe impl<T: Send> Sync for Guard<'_, T> {}
-unsafe impl<T: Sync> Send for Guard<'_, T> {}
+unsafe impl<T: Sync> Sync for Guard<'_, T> {}
+unsafe impl<T: Send> Send for Guard<'_, T> {}
 
 impl<T> Drop for Guard<'_, T> {
     fn drop(&mut self) {
